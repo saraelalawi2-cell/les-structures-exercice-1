@@ -98,8 +98,8 @@ int main() {
         AfficherPoint(tab[i]);
     }
 
-    /* Libération de la mémoire */
+   /* Libération de la mémoire */
     free(tab);
 
-    return 0;
+ return 0;
 }
