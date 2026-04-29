@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <math.h>
 
 /* Définition de la structure Point
    Un point contient deux coordonnées entières : x et y */
@@ -13,14 +13,11 @@ typedef struct {
    Elle demande à l'utilisateur de saisir x et y */
 Point SaisirPoint() {
     Point p;
-
-    printf("Entrer x : ");
-    scanf("%d", &p.x);
-
-    printf("Entrer y : ");
-    scanf("%d", &p.y);
-
-    return p;
+   printf("Entrer x : ");
+   scanf("%d", &p.x); 
+   printf("Entrer y : ");
+   scanf("%d", &p.y); 
+   return p;
 }
 
 /* Fonction pour afficher un point
@@ -47,7 +44,7 @@ void TrierPoints(Point tab[], int n) {
     int i, j;
     Point temp;
 
-    for(i = 0; i < n - 1; i++) {
+   for(i = 0; i < n - 1; i++) {
         for(j = 0; j < n - i - 1; j++) {
             if (Distance(tab[j]) > Distance(tab[j + 1])) {
                 temp = tab[j];
@@ -61,41 +58,41 @@ void TrierPoints(Point tab[], int n) {
 int main() {
     int n, i;
 
-    /* Demande du nombre de points */
+   /* Demande du nombre de points */
     printf("Donner le nombre de points : ");
     scanf("%d", &n);
 
-    /* Allocation dynamique du tableau */
+ /* Allocation dynamique du tableau */
     Point *tab = (Point*) malloc(n * sizeof(Point));
 
-    /* Vérification si l'allocation a réussi */
+ /* Vérification si l'allocation a réussi */
     if (tab == NULL) {
         printf("Erreur d'allocation mémoire\n");
         return 1;
     }
 
-    /* Saisie des points */
+   /* Saisie des points */
     for(i = 0; i < n; i++) {
         printf("\nPoint %d :\n", i + 1);
         tab[i] = SaisirPoint();
     }
 
-    /* Affichage des points */
+ /* Affichage des points */
     printf("\nListe des points :\n");
     for(i = 0; i < n; i++) {
         AfficherPoint(tab[i]);
     }
 
-    /* Affichage des distances */
+   /* Affichage des distances */
     printf("\nDistances des points :\n");
     for(i = 0; i < n; i++) {
         printf("Distance du point %d = %.2f\n", i + 1, Distance(tab[i]));
     }
 
-    /* Tri des points */
+   /* Tri des points */
     TrierPoints(tab, n);
 
-    /* Affichage après tri */
+   /* Affichage après tri */
     printf("\nPoints après tri :\n");
     for(i = 0; i < n; i++) {
         AfficherPoint(tab[i]);
